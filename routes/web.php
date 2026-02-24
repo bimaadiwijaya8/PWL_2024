@@ -12,6 +12,7 @@ Route::get('/', [HomeController::class,'index']);
 Route::get('/about', [AboutController::class,'about']);
 Route::get('/articles/{id}', [ArticleController::class,'articles']);
 Route::resource('photos', PhotoController::class);
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
 
 Route::resource('photos', PhotoController::class)->only([
     'index', 'show'
@@ -20,7 +21,3 @@ Route::resource('photos', PhotoController::class)->only([
 Route::resource('photos', PhotoController::class)->except([
     'create', 'store', 'update', 'destroy'
 ]);
-
-Route::get('/greeting', function () {
-    return view('hello', ['name' => 'Bima']);
-});
